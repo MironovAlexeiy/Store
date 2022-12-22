@@ -1,0 +1,1 @@
+[{"model": "products.category", "pk": 1, "fields": {"title": "Новинки"}}, {"model": "products.category", "pk": 2, "fields": {"title": "Обувь"}}, {"model": "products.category", "pk": 3, "fields": {"title": "Одежда"}}, {"model": "products.category", "pk": 4, "fields": {"title": "Аксессуары"}}, {"model": "products.category", "pk": 5, "fields": {"title": "Подарки"}}]
