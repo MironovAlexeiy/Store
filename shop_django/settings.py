@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-import environ
-
 from pathlib import Path
+
+import environ
 
 env = environ.Env(DEBUG=(bool),
                   SECRET_KEY=(str),
@@ -70,10 +70,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'django_extensions',
+    'rest_framework',
+    'rest_framework.authtoken',
 
     'products',
     'orders',
     'users',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -221,3 +224,12 @@ SOCIALACCOUNT_PROVIDERS = {
 
 CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+
+# rest_framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 3,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+            'rest_framework.authentication.TokenAuthentication'],
+}
